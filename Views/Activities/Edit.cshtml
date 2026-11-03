@@ -1,0 +1,9 @@
+@model AcxiomCRM.Models.Activity
+<h2>Edit Activity</h2>
+<form asp-action="Edit" method="post"><input type="hidden" asp-for="Id"/><div asp-validation-summary="ModelOnly" class="text-danger"></div>
+<div class="mb-3"><label asp-for="ActivityType"></label><select asp-for="ActivityType" class="form-select"><option>Call</option><option>Meeting</option><option>Email</option><option>Task</option></select></div>
+<div class="mb-3"><label asp-for="Subject"></label><input asp-for="Subject" class="form-control"/><span asp-validation-for="Subject" class="text-danger"></span></div>
+<div class="mb-3"><label asp-for="Description"></label><textarea asp-for="Description" class="form-control"></textarea></div>
+<div class="mb-3"><label asp-for="ActivityDate"></label><input asp-for="ActivityDate" type="datetime-local" class="form-control"/></div>
+<div class="mb-3"><label asp-for="Status"></label><select asp-for="Status" class="form-select"><option>Open</option><option>Completed</option><option>Cancelled</option></select></div>
+<button class="btn btn-primary">Update</button></form>

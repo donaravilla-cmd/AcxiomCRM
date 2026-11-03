@@ -1,0 +1,9 @@
+<h2>CRM Reports</h2><p class="text-muted">Summary of CRM records currently stored in the database.</p>
+<div class="row g-3 mb-4">
+@foreach(var item in new[]{("Customers", (int)ViewBag.CustomerCount),("Leads",(int)ViewBag.LeadCount),("Opportunities",(int)ViewBag.OpportunityCount),("Overdue follow-ups",(int)ViewBag.OverdueFollowUps)}) {
+<div class="col-md-3"><div class="card shadow-sm"><div class="card-body"><div class="text-muted">@item.Item1</div><div class="display-6">@item.Item2</div></div></div></div>}
+</div>
+<div class="row g-3"><div class="col-md-6"><div class="card"><div class="card-body"><h5>Pipeline value</h5><h3>@(((decimal)ViewBag.OpenPipeline).ToString("C"))</h3></div></div></div><div class="col-md-6"><div class="card"><div class="card-body"><h5>Won value</h5><h3>@(((decimal)ViewBag.WonValue).ToString("C"))</h3></div></div></div></div>
+<h4 class="mt-4">Recent customers</h4><table class="table table-striped"><thead><tr><th>Name</th><th>Email</th><th>Company</th><th>Status</th></tr></thead><tbody>
+@foreach(var x in (IEnumerable<AcxiomCRM.Models.Customer>)ViewBag.Customers){<tr><td>@x.CustomerName</td><td>@x.Email</td><td>@x.CompanyName</td><td>@x.Status</td></tr>}
+</tbody></table>

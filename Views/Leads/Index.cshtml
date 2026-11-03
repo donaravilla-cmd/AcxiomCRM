@@ -1,0 +1,2 @@
+@model IEnumerable<Lead>
+<div class="d-flex justify-content-between mb-3"><h2>Leads</h2><a class="btn btn-primary" asp-action="Create">+ Add Lead</a></div><table class="table table-striped"><thead><tr><th>Name</th><th>Company</th><th>Source</th><th>Status</th><th>Expected value</th></tr></thead><tbody>@foreach(var x in Model){<tr><td>@x.LeadName</td><td>@x.CompanyName</td><td>@x.Source</td><td>@x.Status</td><td>@x.ExpectedValue</td></tr>}</tbody></table>

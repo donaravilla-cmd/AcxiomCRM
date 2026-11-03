@@ -1,0 +1,5 @@
+@model IEnumerable<AcxiomCRM.Models.Activity>
+<h2>Activities</h2><a class="btn btn-primary mb-3" asp-action="Create">Add Activity</a>
+<table class="table table-striped"><thead><tr><th>Type</th><th>Subject</th><th>Date</th><th>Status</th><th></th></tr></thead><tbody>
+@foreach(var x in Model){<tr><td>@x.ActivityType</td><td>@x.Subject</td><td>@x.ActivityDate.ToString("g")</td><td>@x.Status</td><td><a asp-action="Edit" asp-route-id="@x.Id">Edit</a> <form asp-action="Delete" asp-route-id="@x.Id" method="post" class="d-inline"><button class="btn btn-sm btn-link text-danger">Delete</button></form></td></tr>}
+</tbody></table>

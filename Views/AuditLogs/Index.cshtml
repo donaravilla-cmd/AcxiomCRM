@@ -1,0 +1,5 @@
+@model IEnumerable<AcxiomCRM.Models.AuditLog>
+<h2>Audit Log</h2><form method="get" class="row g-2 mb-3"><div class="col"><input name="module" class="form-control" placeholder="Module"/></div><div class="col"><input name="actionName" class="form-control" placeholder="Action"/></div><div class="col-auto"><button class="btn btn-primary">Filter</button></div></form>
+<table class="table table-sm table-striped"><thead><tr><th>Date (UTC)</th><th>User</th><th>Action</th><th>Module</th><th>Record</th><th>Details</th><th>IP</th></tr></thead><tbody>
+@foreach(var x in Model){<tr><td>@x.CreatedDate.ToString("g")</td><td>@x.UserId</td><td>@x.Action</td><td>@x.EntityName</td><td>@x.RecordId</td><td>@x.NewValue</td><td>@x.IpAddress</td></tr>}
+</tbody></table>
